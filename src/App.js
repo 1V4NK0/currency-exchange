@@ -33,56 +33,59 @@ function App() {
   }, [api]);
 
   return (
-    <div className="container">
-      <div className="main">
-        <InputField text={"Amount"} amount={amount} setAmount={setAmount} />
-        <SelectField
-          text="From"
-          value={fromCurrency}
-          data={conversionRates}
-          onChange={(e) => {
-            setFromCurrency(e.target.value);
-            console.log("from: ", e.target.value);
-          }}
-          isLoading={isLoading}
-          error={error}
-        />
-        <button
-          onClick={() => {
-            setFromCurrency((prevFromCurrency) => {
-              setToCurrency(prevFromCurrency);
-              return toCurrency;
-            });
-          }}
-        >
-          <i className="fa-solid fa-rotate"></i>{" "}
-        </button>
-        <SelectField
-          text="To"
-          value={toCurrency}
-          data={conversionRates}
-          onChange={(e) => {
-            setToCurrency(e.target.value);
-            console.log("to: ", e.target.value);
-          }}
-          isLoading={isLoading}
-          error={error}
-        />
-      </div>
-
-      <div className="result-container">
-        {error ? (
-          <p className="error">{error}</p>
-        ) : (
-          <Result
-            toCurrency={toCurrency}
-            amount={amount}
-            fromCurrency={fromCurrency}
-            conversionRates={conversionRates}
+    <>
+      <h3>best currency converter</h3>
+      <div className="container">
+        <div className="main">
+          <InputField text={"Amount"} amount={amount} setAmount={setAmount} />
+          <SelectField
+            text="From"
+            value={fromCurrency}
+            data={conversionRates}
+            onChange={(e) => {
+              setFromCurrency(e.target.value);
+              console.log("from: ", e.target.value);
+            }}
+            isLoading={isLoading}
+            error={error}
           />
-        )}
+          <button
+            onClick={() => {
+              setFromCurrency((prevFromCurrency) => {
+                setToCurrency(prevFromCurrency);
+                return toCurrency;
+              });
+            }}
+          >
+            <i className="fa-solid fa-rotate"></i>{" "}
+          </button>
+          <SelectField
+            text="To"
+            value={toCurrency}
+            data={conversionRates}
+            onChange={(e) => {
+              setToCurrency(e.target.value);
+              console.log("to: ", e.target.value);
+            }}
+            isLoading={isLoading}
+            error={error}
+          />
+        </div>
+
+        <div className="result-container">
+          {error ? (
+            <p className="error">{error}</p>
+          ) : (
+            <Result
+              toCurrency={toCurrency}
+              amount={amount}
+              fromCurrency={fromCurrency}
+              conversionRates={conversionRates}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

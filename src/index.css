@@ -31,7 +31,7 @@ code {
   justify-content: center;
   gap: 30px;
   padding: 25px;
-  margin-top: 25%;
+  margin-top: 10%;
   font-size: 24px;
   align-items: center;
 }
@@ -43,6 +43,12 @@ select {
   border: none;
   padding: 5px; /* Optional: Add some padding */
   border-radius: 10px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 10%;
 }
 
 input {
