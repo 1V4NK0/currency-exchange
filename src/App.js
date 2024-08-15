@@ -30,7 +30,7 @@ function App() {
     }
 
     fetchRates();
-  }, [api]);
+  }, [api, fromCurrency]);
 
   return (
     <>
